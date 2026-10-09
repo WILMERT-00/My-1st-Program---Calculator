@@ -5,54 +5,54 @@ while (continue_Program)
     try
     {
         Console.WriteLine("==============================================\n");
-Console.WriteLine("         PROGRAMA MULTIFUNCIONAL\n");
-Console.WriteLine("==============================================\n");
-Console.WriteLine("Selecciona el programa que deseas utilizar:");
-Console.WriteLine(
-    "1. Calculadora Basica\n" +
-    "2. Evaluacion Estudiantil\n" +
-    "3. Salir del programa principal\n");
+        Console.WriteLine("         PROGRAMA MULTIFUNCIONAL\n");
+        Console.WriteLine("==============================================\n");
+        Console.WriteLine("Selecciona el programa que deseas utilizar:");
+        Console.WriteLine(
+            "1. Calculadora Basica\n" +
+            "2. Evaluacion Estudiantil\n" +
+            "3. Salir del programa principal\n");
 
-Console.WriteLine("Ingresa el numero de la opcion que deseas utilizar: ");
+        Console.WriteLine("Ingresa el numero de la opcion que deseas utilizar: ");
 
-if (!int.TryParse(Console.ReadLine(), out int primary_Entered_Option))
-{
-    Console.WriteLine("\nIngresa un numero valido por favor");
-    continue;
-}
-
-switch (primary_Entered_Option)
-{
-    case 1:
-        bool exit_Basic_Calculator = false;
-
-        while (!exit_Basic_Calculator)
+        if (!int.TryParse(Console.ReadLine(), out int primary_Entered_Option))
         {
-            exit_Basic_Calculator = basic_Calculator();
+            Console.WriteLine("\nIngresa un numero valido por favor");
+            continue;
         }
-        break;
-    case 2:
-        bool exit_Student_Evaluation = false;
 
-        while (!exit_Student_Evaluation)
+        switch (primary_Entered_Option)
         {
-            exit_Student_Evaluation = student_Evaluation();
+            case 1:
+                bool exit_Basic_Calculator = false;
+
+                while (!exit_Basic_Calculator)
+                {
+                    exit_Basic_Calculator = basic_Calculator();
+                }
+                break;
+            case 2:
+                bool exit_Student_Evaluation = false;
+
+                while (!exit_Student_Evaluation)
+                {
+                    exit_Student_Evaluation = student_Evaluation();
+                }
+                break;
+            case 3:
+                continue_Program = false;
+                Console.WriteLine("\nSaliendo del programa principal...");
+                break;
+            default:
+                Console.WriteLine("Opcion invalida. Intenta nuevamente.");
+                break;
         }
-        break;
-    case 3:
-        continue_Program = false;
-        Console.WriteLine("\nSaliendo del programa principal...");
-        break;
-    default:
-        Console.WriteLine("Opcion invalida. Intenta nuevamente.");
-        break;
-}
     }
     catch (Exception ex)
     {
-    Console.WriteLine("");
-    Console.WriteLine($"Error: {ex.Message}\n");
-}
+        Console.WriteLine("");
+        Console.WriteLine($"Error: {ex.Message}\n");
+    }
 }
 
 static bool basic_Calculator()
